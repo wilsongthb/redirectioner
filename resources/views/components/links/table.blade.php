@@ -9,6 +9,15 @@
     <td>{{$item->namespace}}</td>
     <td title="{{$item->target}}">{{substr($item->target, 0, 24)}}</td>
     <td><a href="{{$item->generateShortLink()}}">{{ $item->generateShortLink() }}</a></td>
+    <td>
+      <form method="POST" action="{{ url('/links/'.$item->id) }}">
+        @method("DELETE")
+        @csrf
+
+        <input type="hidden" value="{{$item->id}}" name="id">
+        <button type="submit">Eliminar</button>
+      </form>
+    </td>
   </tr>
   @endforeach
 </table>

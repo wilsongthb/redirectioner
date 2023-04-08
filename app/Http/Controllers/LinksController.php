@@ -99,6 +99,6 @@ class LinksController extends Controller
    */
   public function destroy($id)
   {
-    //
+    Link::destroy($id);
   }
 }

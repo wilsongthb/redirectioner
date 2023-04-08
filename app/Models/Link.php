@@ -14,4 +14,8 @@ class Link extends Model
   public function generateShortLink() {
     return url('') . '/' . $this->hash;
   }
+
+  public function visits() {
+    return $this->hasMany(LinkVisit::class, 'link_id');
+  }
 }
